@@ -24,9 +24,9 @@ npm install
 
 update **./powerbi_config.json** with proper values for 
 ```
-accessToken: '',
-embedUrl: '',
-reportId: ''
+"accessToken": "",
+"embedUrl": "",
+"reportId": ""
 ```
 
 run it
