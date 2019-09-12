@@ -1,6 +1,6 @@
 {
-  "name": "bowerbi-embedded-react-native-demo",
-  "description": "A demo to use powerBi embedded report in a React-Native application via webview",
+  "name": "powerbi-embedded-react-native-demo",
+  "description": "A demo to use PowerBi embedded report in a React-Native application via webview",
   "license": "MIT",
   "author": "anton.v.romanov@gmail.com",
   "version": "0.1.0",
