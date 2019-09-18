@@ -15,6 +15,41 @@ Setup:
 - get your embedUrl (PowerBi->open report->File->Embed)
 - generate an accessToken (see below)
 
+
+## The step by step test reproduce
+
+- create a new AAD
+- switch to newly created AAD:
+    - add a user admin@ (keep your initial password, later you will be asked to change it)
+        - open admin@ details
+        - goto Directory role -> set as Global administrator 
+    - goto App Registrations
+        - click + New registration
+        - goto App's Api permissions-> add Power Bi Service -> Delegated permissions 
+            -> Set permissions: 
+                - Capacity read & read/write all
+                - Content create
+                - Dashboard read & read/write all
+                - Dataset read & read/write all
+                - Group read & read/write all
+                - Report read & read/write all
+                - Workspace read & read/write all
+        - at App's overview copy AppId
+        - go to App's Authentication. Default client Type -> Treat app as a public client -> set to "Yes" 
+- goto app.powerbi.com login with admin@.... user (with inital password, you will be asked to make a new password)
+	- click add new workspace, choose Try Pro for free
+	- create a new workspace
+ 	- at the welcome page to the workspace click "Samples" link, select any dataset
+	- at workspace left menu switch to the available report 
+	- copy workspaceId, reportId
+	- at report area click File->Embed and cope the embedUrl
+	- at report area click Edit report -> Mobile layout, make the mobile layout, switch back to Web layout, Save report
+- put all prepared IDs into config.json and powerbi_config.json
+- run token generator
+- set the token into config.json
+- run the App (run-android|run-ios)	
+
+
 ## Run in dev environment
 
 
@@ -29,10 +64,16 @@ update **./powerbi_config.json** with proper values for
 "reportId": ""
 ```
 
-run it
+run it (have your android emulator running)
 ```bash
 ../node_modules/.bin/react-native run-android
 ```
+
+for iOS have your iOS emulator running and run
+```bash
+../node_modules/.bin/react-native run-ios
+```
+
 
 ## Token generation
 
